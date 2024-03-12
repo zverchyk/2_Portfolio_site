@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add_item</title>
+    {% from "bootstrap5/form.html" import render_form %}
+</head>
+<body>
+    
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              
+              {{render_form(form)}}
+             
+            </div>
+          </div>
+        </div>
+
+    {%if item_added%}
+
+    <p style='font-size: 200px;'>New item successfully added!</p>
+
+    {%endif%}
+</body>
+</html>
