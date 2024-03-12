@@ -8,6 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from messenger import Messenger
 from functools import wraps
 from forms import Item
+import os
 #messenger 
 message = Messenger()
 
@@ -19,8 +20,8 @@ app = Flask(__name__)
 Bootstrap5(app)
 
 #confing variables
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///portfolio.db'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI', 'sqlite:///portfolio.db')
 
 #Flask-login
 login_manager = LoginManager(app)
